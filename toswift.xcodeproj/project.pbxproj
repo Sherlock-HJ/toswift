@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5140730227D596C4005EC88D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5140730127D596C4005EC88D /* main.swift */; };
+		5140730927D5979C005EC88D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5140730827D5979C005EC88D /* Config.swift */; };
+		5140730B27D59863005EC88D /* FilterFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5140730A27D59863005EC88D /* FilterFiles.swift */; };
+		5140730D27D618BB005EC88D /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5140730C27D618BB005EC88D /* Translation.swift */; };
+		51EF5DF827D6FF06002BF582 /* ClassMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EF5DF727D6FF06002BF582 /* ClassMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,10 @@
 /* Begin PBXFileReference section */
 		514072FE27D596C4005EC88D /* toswift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = toswift; sourceTree = BUILT_PRODUCTS_DIR; };
 		5140730127D596C4005EC88D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		5140730827D5979C005EC88D /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		5140730A27D59863005EC88D /* FilterFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFiles.swift; sourceTree = "<group>"; };
+		5140730C27D618BB005EC88D /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
+		51EF5DF727D6FF06002BF582 /* ClassMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				5140730127D596C4005EC88D /* main.swift */,
+				5140730827D5979C005EC88D /* Config.swift */,
+				5140730A27D59863005EC88D /* FilterFiles.swift */,
+				5140730C27D618BB005EC88D /* Translation.swift */,
+				51EF5DF727D6FF06002BF582 /* ClassMap.swift */,
 			);
 			path = toswift;
 			sourceTree = "<group>";
@@ -90,7 +102,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					514072FD27D596C4005EC88D = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -120,7 +132,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51EF5DF827D6FF06002BF582 /* ClassMap.swift in Sources */,
+				5140730B27D59863005EC88D /* FilterFiles.swift in Sources */,
 				5140730227D596C4005EC88D /* main.swift in Sources */,
+				5140730927D5979C005EC88D /* Config.swift in Sources */,
+				5140730D27D618BB005EC88D /* Translation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +261,7 @@
 		5140730627D596C4005EC88D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -254,6 +271,7 @@
 		5140730727D596C4005EC88D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
