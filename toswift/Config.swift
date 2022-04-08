@@ -15,7 +15,9 @@ let CurrentDirectoryPath = FileManager.default.currentDirectoryPath
 
 enum Arguments: String {
     case filter
+    case f
     case translation
+    case t
 }
 
 struct File: CustomStringConvertible, CustomDebugStringConvertible {

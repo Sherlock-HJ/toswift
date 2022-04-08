@@ -18,8 +18,8 @@ guard let arg = Arguments(rawValue: CommandLine.arguments[1]) else {
 }
 
 switch arg {
-case .filter:
+case .f, .filter:
     filterFilesMain()
-case .translation:
+case .t, .translation:
     Translation.main()
 }
