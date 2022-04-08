@@ -40,7 +40,42 @@ struct File: CustomStringConvertible, CustomDebugStringConvertible {
 }
 
 
+extension Range where Bound == String.Index {
+    init(string: String, nsrange: NSRange) {
+        let start = string.index(string.startIndex, offsetBy: nsrange.location)
+        let end = string.index(string.startIndex, offsetBy: nsrange.location + nsrange.length)
+        self.init(uncheckedBounds: (lower: start, upper: end))
+    }
+}
+
+
+extension NSRange {
+    
+    func range(string: String) -> Range<String.Index> {
+        Range(string: string, nsrange: self)
+    }
+}
+
 extension String {
+    
+    func index(_ idx: Int) -> String.Index {
+        self.index(self.startIndex, offsetBy: idx)
+    }
+    
+    func range(nsrange: NSRange) -> Range<String.Index> {
+        Range(string: self, nsrange: nsrange)
+    }
+    
+    func rangeString(nsrange: NSRange) -> String {
+        String(self[self.range(nsrange: nsrange)])
+    }
+    
+    func matchRange(string: String) -> [NSRange] {
+        let regular = try? NSRegularExpression(pattern: string, options: .anchorsMatchLines)
+        guard let regular = regular else { return [] }
+
+        return regular.matches(in: self, options: .reportCompletion, range: NSRange(location: 0, length: self.count)).map({ $0.range })
+    }
     
     func match(string: String) -> [String] {
         var arr = [String]()
@@ -50,14 +85,12 @@ extension String {
         let res = regular.matches(in: self, options: .reportCompletion, range: NSRange(location: 0, length: self.count))
 
         for item in res {
-            let start = self.index(self.startIndex, offsetBy: item.range.location)
-            let end = self.index(self.startIndex, offsetBy: item.range.location + item.range.length - 1)
-            
-            let str = String(self[start...end])
-            arr.append(str)
+            arr.append(self.rangeString(nsrange: item.range))
         }
         return arr
     }
+    
+    
     
     var contentString: String? {
         guard let fileData = FileManager.default.contents(atPath: self),

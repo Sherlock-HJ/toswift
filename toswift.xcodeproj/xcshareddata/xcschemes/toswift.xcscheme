@@ -68,7 +68,7 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "MZTelConsultAdviceViewController"
+            argument = "MZRegisterItemView"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

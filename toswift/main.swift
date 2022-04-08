@@ -21,5 +21,5 @@ switch arg {
 case .filter:
     filterFilesMain()
 case .translation:
-    translationMain()
+    Translation.main()
 }
