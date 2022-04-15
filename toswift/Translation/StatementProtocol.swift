@@ -23,7 +23,7 @@ struct StatementProtocol: Features, Fragment {
     var swiftFragment: String {
         let oc = ocFragment
         let arr = oc.match(string: #"\w+"#)
-        return "protocol \(arr[1]): NSObjectProtocol {"
+        return "@objc protocol \(arr[1]): NSObjectProtocol {"
     }
     
 }

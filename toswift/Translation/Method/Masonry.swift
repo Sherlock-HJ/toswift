@@ -72,9 +72,33 @@ struct Masonry {
             return "\(view).snp.remakeConstraints { make in \(functionBody)"
         }
 
-        
     }
     
+    struct UpdateConstraintsCall: Features, Fragment {
+        static var regular: String {
+            #"\[.+ +mas_updateConstraints: *\^\( *MASConstraintMaker[ \*]+make *\) *\{[^\}]*\}\]"#
+        }
+        
+        static var fragmentType: Fragment.Type {
+            Self.self
+        }
+        
+        var ocFragment: String
+        
+        var range: NSRange
+
+        var swiftFragment: String {
+            let arr = ocFragment.replacingOccurrences(of: " ", with: "").components(separatedBy: "mas_updateConstraints:^(MASConstraintMaker*make){")
+            guard arr.count == 2 else { return ocFragment }
+            
+            let view = arr[0].replacingOccurrences(of: "[", with: "")
+            let functionBody = arr[1].replacingOccurrences(of: "]", with: "")
+
+            return "\(view).snp.updateConstraints { make in \(functionBody)"
+        }
+
+        
+    }
     
     struct MasPrefix: Features, Fragment {
         static var regular: String {

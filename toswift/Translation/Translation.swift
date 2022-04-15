@@ -70,6 +70,7 @@ struct Translation {
         // 特殊替换
         Masonry.MakeConstraintsCall.self,
         Masonry.RemakeConstraintsCall.self,
+        Masonry.UpdateConstraintsCall.self,
         Masonry.MasPrefix.self,
         AddSubviewMethodCall.self,
         EmptyInitMethodCall.self,
@@ -89,6 +90,7 @@ struct Translation {
         EmptyParamMethodCall.self,
         CGSizeMakeCall.self,
         CGRectMakeCall.self,
+        UIEdgeInsetsMakeCall.self,
         
         // 固定替换
         StringLiteral.self,

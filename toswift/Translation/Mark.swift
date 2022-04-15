@@ -9,7 +9,7 @@ import Foundation
 
 struct Mark: Features, Fragment {
     static var regular: String {
-        #"#pragma *mark *- *[\w ]+"#
+        #"#pragma *mark *-? *.+"#
     }
     
     static var fragmentType: Fragment.Type {
@@ -22,10 +22,10 @@ struct Mark: Features, Fragment {
 
     var swiftFragment: String {
         let oc = ocFragment
-        guard var title = oc.match(string: #"- *[\w ]+"#).first?.replacingOccurrences(of: " ", with: "") else {
-            return ""
+        guard let first = oc.match(string: #"#pragma *mark *-? *"#).first else {
+            return ocFragment
         }
-        title.remove(at: title.startIndex)
+        let title = oc.replacingOccurrences(of: first, with: "")
         return "// MARK: - \(title)"
     }
     
